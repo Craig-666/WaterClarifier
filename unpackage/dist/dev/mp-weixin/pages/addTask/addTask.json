@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "添加任务",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-form": "/node-modules/uview-ui/components/u-form/u-form",
+    "u-form-item": "/node-modules/uview-ui/components/u-form-item/u-form-item",
+    "u-input": "/node-modules/uview-ui/components/u-input/u-input",
+    "u-select": "/node-modules/uview-ui/components/u-select/u-select",
+    "u-button": "/node-modules/uview-ui/components/u-button/u-button"
+  }
+}

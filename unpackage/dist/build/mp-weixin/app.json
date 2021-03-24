@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/employee/employee",
+    "pages/emp_index/orders",
+    "pages/addTask/addTask",
+    "pages/customer/customer",
+    "pages/customerManage/customerManage",
+    "pages/today/today",
+    "pages/my_customer/my_customer",
+    "pages/install/install",
+    "pages/goods/index",
+    "pages/goods/addGoods",
+    "pages/goods/inbound",
+    "pages/goods/outbound"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "新疆净水村村通",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

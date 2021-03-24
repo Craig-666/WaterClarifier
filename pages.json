@@ -1,0 +1,120 @@
+{
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login"
+
+		}, {
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		}, {
+			"path": "pages/employee/employee",
+			"style": {
+				"navigationBarTitleText": "添加员工",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/emp_index/orders",
+			"style": {
+				"navigationBarTitleText": "我的任务",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/addTask/addTask",
+			"style": {
+				"navigationBarTitleText": "添加任务",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/customer/customer",
+			"style": {
+				"navigationBarTitleText": "添加客户",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/customerManage/customerManage",
+			"style": {
+				"navigationBarTitleText": "客户管理",
+				"enablePullDownRefresh": true
+			}
+
+		}
+	    ,{
+            "path" : "pages/today/today",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "今日任务",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my_customer/my_customer",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的客户",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/install/install",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/goods/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品管理",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/goods/addGoods",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "添加商品",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/goods/inbound",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "入库",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/goods/outbound",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "新疆净水村村通",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
