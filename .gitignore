@@ -1,0 +1,9 @@
+dist/
+.temp/
+.rn_temp/
+node_modules/
+unpackage/
+.DS_Store
+.vscode/
+.idea/
+yarn-error.log

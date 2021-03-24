@@ -1,1 +1,0 @@
-<view><u-button bind:click="__e" vue-id="06a36274-1" data-event-opts="{{[['^click',[['task']]]]}}" bind:__l="__l" vue-slots="{{['default']}}">今日任务</u-button><u-button bind:click="__e" vue-id="06a36274-2" data-event-opts="{{[['^click',[['cus']]]]}}" bind:__l="__l" vue-slots="{{['default']}}">我的客户</u-button></view>

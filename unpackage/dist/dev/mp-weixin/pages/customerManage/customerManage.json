@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "客户管理",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "u-checkbox": "/node-modules/uview-ui/components/u-checkbox/u-checkbox",
-    "u-button": "/node-modules/uview-ui/components/u-button/u-button",
-    "u-select": "/node-modules/uview-ui/components/u-select/u-select"
-  }
-}
