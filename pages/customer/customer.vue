@@ -36,7 +36,8 @@
 					address: '',
 					phone: '',
 					unitId: this.$Bmob.User.current().objectId,
-					remark: ''
+					remark: '',
+					status: 'unDispatch'
 				},
 				dispatch: {
 
@@ -54,7 +55,8 @@
 						required: true,
 						message: '请输入地址'
 					}]
-				}
+				},
+				customerInfo: false
 			};
 		},
 		methods: {
@@ -64,12 +66,24 @@
 					if (valid) {
 						try {
 							const query = this.$Bmob.Query('Customer');
-							transformBmobParam(query, this.form)
-							await query.save()
-							uni.showToast({
-								title: '保存成功'
-							})
-							this.$refs.uForm.resetFields()
+							
+							if(this.customerInfo){
+								const cus = await query.get(this.customerInfo.objectId)
+								transformBmobParam(cus, this.form)
+								await cus.save()
+								uni.showToast({
+									title: '保存成功'
+								})
+								uni.navigateBack()
+							}else{
+								transformBmobParam(query, this.form)
+								await query.save()
+								uni.showToast({
+									title: '保存成功'
+								})
+								this.$refs.uForm.resetFields()
+							}
+							
 						} catch (e) {
 							console.log(e)
 							uni.showToast({
@@ -83,8 +97,18 @@
 				});
 			}
 		},
-		onLoad() {
-			
+		onLoad(option) {
+			if(option.item){
+				this.customerInfo = JSON.parse(option.item)
+				this.form = {
+					contact: this.customerInfo.contact,
+					address: this.customerInfo.address,
+					phone: this.customerInfo.phone,
+					unitId: this.customerInfo.unitId,
+					remark: this.customerInfo.remark,
+					status: this.customerInfo.status
+				}
+			}
 		},
 		// 必须要在onReady生命周期，因为onLoad生命周期组件可能尚未创建完毕
 		onReady() {

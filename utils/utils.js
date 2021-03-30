@@ -13,3 +13,11 @@ export const batchFind = (query, ids) =>{
 	query.or(...[arr]);
 	
 }
+
+
+export const getUserInfo = () =>{
+	return JSON.parse(uni.getStorageSync('bmob'))
+}
+export const getUserId = () =>{
+	return getUserInfo().objectId
+}

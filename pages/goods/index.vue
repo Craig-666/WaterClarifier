@@ -7,11 +7,19 @@
 				
 			</view>
 			<view>
-				<text>库存：{{item.count || 0}}</text>
+				<text>库存：{{item.count}}</text>
 			</view>
-			<view>
-				<u-button @click='inbound(item)' type='primary'>入库</u-button>
-				<u-button @click='outbound(item)' >调拨</u-button>
+			<view style="display: flex;">
+				<view>
+					<u-button @click='inbound(item)' type='primary'>入库</u-button>
+				</view>
+				<view>
+					<u-button @click='outbound(item)' >调拨</u-button>
+				</view>
+				<view>
+					<u-button @click='record(item)' >记录</u-button>
+				</view>
+				
 			</view>
 		</view>
 		<view class="add_wrapper">
@@ -40,8 +48,17 @@
 				query.equalTo("unitId", "==", this.$Bmob.User.current().objectId);
 				
 				const list = await query.find()
-				console.log('asdfasdfas',list)
-				this.list = list
+				await list.forEach( async (ele)=>{
+					const storage = this.$Bmob.Query("Goods_count");
+					storage.equalTo("userId", "==", this.$Bmob.User.current().objectId);
+					storage.equalTo("goodsId", "==", ele.objectId);
+					const res = await storage.find()
+					ele.count = res[0] ? res[0].count : 0,
+					ele.freezeCount = res[0] ? res[0].freezeCount : 0
+					this.list = [...list]
+					this.$forceUpdate()
+				})
+				
 			},
 			inbound(item){
 				uni.navigateTo({
@@ -51,6 +68,11 @@
 			outbound(item){
 				uni.navigateTo({
 					url:`/pages/goods/outbound?item=${JSON.stringify(item)}`
+				})
+			},
+			record(item){
+				uni.navigateTo({
+					url:`/pages/goods/record?item=${JSON.stringify(item)}`
 				})
 			}
 		},
@@ -67,6 +89,7 @@
 		border-bottom: 1rpx solid #efeff4;
 	}
 	.add_wrapper {
+		background-color: white;
 		position: fixed;
 		bottom: 0;
 		left: 0;

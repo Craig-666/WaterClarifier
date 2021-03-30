@@ -45,16 +45,7 @@
 				"navigationBarTitleText": "客户管理",
 				"enablePullDownRefresh": true
 			}
-
-		}
-	    ,{
-            "path" : "pages/today/today",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "今日任务",
-                "enablePullDownRefresh": false
-            }
-            
+  
         }
         ,{
             "path" : "pages/my_customer/my_customer",
@@ -103,6 +94,51 @@
         }
         ,{
             "path" : "pages/goods/outbound",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/goods/record",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/emp_dispatch/emp_dispatch",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my_storage/my_storage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/applyBound/applyBound",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/allocation/allocation",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

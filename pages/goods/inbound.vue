@@ -50,15 +50,34 @@
 					if (valid) {
 
 						try {
-							const query = this.$Bmob.Query('Goods');
-							console.log(query)
-							const goods = await query.get(this.goodsInfo.objectId)
-							console.log(goods)
-							goods.set('count',parseInt(this.goodsInfo.count || '0') + parseInt(this.form.count))
-							await goods.save()
+							
+							const query = this.$Bmob.Query('Goods_count');
+							query.equalTo("goodsId", "==", this.goodsInfo.objectId);
+							query.equalTo("userId", "==", this.$Bmob.User.current().objectId);
+							const counts = await query.find()
+							if(counts.length){
+								const gc = this.$Bmob.Query('Goods_count');
+								const rec = await gc.get(counts[0].objectId)
+								rec.set('count',rec.count + parseInt(this.form.count)),
+								await rec.save()
+							}else{
+								const quer = this.$Bmob.Query('Goods_count')
+								quer.set('count',parseInt(this.form.count)),
+								quer.set('goodsId',this.goodsInfo.objectId),
+								quer.set('userId',this.$Bmob.User.current().objectId),
+								await quer.save()
+							}
+						
 							
 							const record = this.$Bmob.Query('InboundRecord');
-							transformBmobParam(record, {...this.form,count:parseInt(this.form.count),goodsId:this.goodsInfo.objectId})
+							const params = {
+								...this.form,
+								count:parseInt(this.form.count),
+								goodsId:this.goodsInfo.objectId,
+								goodsInfo:`${this.goodsInfo.goodsName} - ${this.goodsInfo.sku}`,
+								
+							}
+							transformBmobParam(record,params)
 							await record.save()
 							uni.showToast({
 								title: '保存成功'
